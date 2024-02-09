@@ -1,0 +1,45 @@
+<p-table
+    #dt1
+    dataKey="id"
+    [columns]="cols"
+    [value]="products"
+    selectionMode="multiple"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    styleClass="p-datatable-gridlines"
+    [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            Products
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header"  let-columns>
+        <tr>
+            <th class="flex align-items-center" *ngFor="let col of columns" pSortableColumn="{{col.field}}">
+                {{ col.header }} <p-sortIcon field="{{col.field}}"></p-sortIcon>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p-columnFilter type="text" field="quantity"></p-columnFilter>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="columns">
+            <td *ngFor="let col of columns">
+                {{ rowData[col.field] }}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>
