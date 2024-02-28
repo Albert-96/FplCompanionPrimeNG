@@ -1,0 +1,14 @@
+<div class="playerbody">
+    <h2>Players</h2>
+    <app-grid
+        [columns]="columns"
+        [isCheckbox]="false"
+        [dataSource]="dataSource"
+        [totalRecords]="totalRecords"
+        [rowCount]="15"
+        [selectionMode]="selectionMode"
+        [loading]="loading"
+        [loadData]="loadData"
+        scrollHeight="500px"
+    ></app-grid>
+</div>
