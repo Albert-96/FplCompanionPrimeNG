@@ -17,6 +17,7 @@ import { GridResponse } from '../../models/IGridResponse';
 })
 export class PlayersComponent {
   columns : any[];
+  selectedColumns!: any[];
   loading: boolean = false;
   dataSource: IPlayer[] = [];
   totalRecords: number = 0;
@@ -24,6 +25,7 @@ export class PlayersComponent {
 
   constructor(private httpService : HttpService<GridResponse>) {
     this.columns = PlayersConfig.columns;
+    this.selectedColumns = this.columns.filter(x => x.visible == true);
   }
 
   ngOnInit() {
@@ -32,7 +34,18 @@ export class PlayersComponent {
 
   loadData = (event: TableLazyLoadEvent) => {
     this.loading = true;
-    console.log(event);
+    // const filteredFilters = Object.entries(event.filters || {})
+    //   .filter(([key, value]) => value !== null && value !== undefined && (Array.isArray(value) ? value[0] : value).value !== null);
+    // let gridOptions = {
+    //   ...event,
+    //   filters: filteredFilters.map(([key, value]) => 
+    //   {
+    //     return {
+    //       column: key,
+    //       ...Array.isArray(value) ? value[0] : value
+    //     }
+    //   })
+    // }
     this.httpService.post(Routes.player, event)
       .subscribe(response => 
       {

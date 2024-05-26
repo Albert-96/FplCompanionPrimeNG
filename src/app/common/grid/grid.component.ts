@@ -1,18 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TableLazyLoadEvent, TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
 import { GridConstants } from './grid.constants'
 
 @Component({
   selector: 'app-grid',
   standalone: true,
-  imports: [CommonModule,TableModule,ButtonModule],
+  imports: [CommonModule,TableModule,ButtonModule,MultiSelectModule, FormsModule],
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.css'
 })
 export class GridComponent {
   selected!: any[];
+  @Input() selectedColumns!: any[];
   @Input() totalRecords!: number;
   @Input() loading!: boolean;
   @Input() dataSource!: any;

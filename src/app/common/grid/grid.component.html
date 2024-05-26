@@ -5,7 +5,7 @@
     (onLazyLoad)="loadData($event)"
     [lazyLoadOnInit]="true"
     [loading]="loading"
-    [columns]="columns"
+    [columns]="selectedColumns"
     [value]="dataSource"
     [selectionMode]="selectionMode"
     [paginator]="true"
@@ -25,6 +25,12 @@
     (onRowUnselect)="onRowUnselect($event)"
     [totalRecords]="totalRecords"
     [tableStyle]="{ 'min-width': '50rem'}">
+    <ng-template pTemplate="caption">
+        <p-multiSelect 
+            [options]="columns" [(ngModel)]="selectedColumns" optionLabel="caption"
+            selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}" placeholder="Choose Columns">
+        </p-multiSelect>
+    </ng-template>
     <ng-template pTemplate="header"  let-columns>
         <tr>
             <th *ngIf="isCheckbox" style="width: 3rem">
@@ -34,7 +40,7 @@
                 <div [ngStyle]="{'width.px': col.width}">
                     <span class="flex align-items-left">{{ col.caption }}</span>
                     <p-sortIcon class="flex align-items-right" field="code"></p-sortIcon>
-                    <p-columnFilter class="flex align-items-right" type="{{col.dataType}}" field="{{col.dataField}}" display="menu" [showAddButton]="false" class="p-ml-auto"></p-columnFilter>
+                    <p-columnFilter class="flex align-items-right" type="{{col.dataType}}" field="{{col.dataField}}" display="menu" class="p-ml-auto"></p-columnFilter>
                 </div>
             </th>
         </tr>
