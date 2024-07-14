@@ -1,0 +1,3 @@
+::ng-deep .p-datatable-scrollable>.p-datatable-wrapper {
+    min-height: 70vh; /* or your desired height */
+}
