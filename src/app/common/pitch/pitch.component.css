@@ -1,0 +1,12 @@
+/* football-pitch.component.css */
+.overlay-container {
+    position: relative;
+}
+
+.pitchplayers {
+    top: 100px;
+    z-index: 1;
+}
+
+  
+  
