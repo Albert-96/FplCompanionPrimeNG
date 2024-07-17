@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h2>Fixtures</h2>
+        </div>
+        <div class="col-3 offset-6">
+            <p-dropdown
+            [options]="events" 
+            [(ngModel)]="selectedEvent"
+            optionLabel="name" 
+            [showClear]="true" 
+            (onChange)="onChange($event)"
+            placeholder="Select matchweek" />
+        </div>
+    </div>
+    <app-fixture-row></app-fixture-row>
+</div>

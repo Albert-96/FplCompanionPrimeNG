@@ -16,18 +16,19 @@ export abstract class HttpService<T> {
     this.baseUrl = environment.apiUrl;
   }
 
-  public get(route: string, params?: object): Observable<T[]> {
+  public get(route: string, params?: object): Observable<T> {
     let url = this.baseUrl + route;
-    let options: any = {};
     if (params) {
-      options.params = params ? this.getHttpParams(params) : undefined;
-      return this.http.get<T[]>(url)
+      let options: {
+        params: HttpParams
+      } = { params: this.getHttpParams(params)};
+      return this.http.get<T>(url, options)
       .pipe(
         catchError(this.handleError)
       );
     }
     else{
-      return this.http.get<T[]>(url)
+      return this.http.get<T>(url)
       .pipe(
         catchError(this.handleError)
       );
