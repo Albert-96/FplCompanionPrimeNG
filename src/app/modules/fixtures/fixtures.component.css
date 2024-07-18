@@ -13,14 +13,10 @@
     padding-left: 100px;
 }
 
-.p-dropdown-label {
+::ng-deep .p-dropdown-item {
     color: rgb(55, 0, 60)!important; 
 }
 
-.p-dropdown-items {
-    color: rgb(55, 0, 60)!important; 
-}
-
-.p-dropdown-item {
-    color: rgb(55, 0, 60)!important; 
+::ng-deep .p-dropdown-label {
+    color: rgb(55, 0, 60)!important;
 }

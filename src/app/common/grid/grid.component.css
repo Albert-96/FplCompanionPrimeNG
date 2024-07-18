@@ -10,3 +10,31 @@
 ::ng-deep .p-highlight {
     color: #37003c!important;
 }
+
+:ng-deep .p-column-filter-remove-button {
+    background-color: #ffffff!important;
+    border-color: #ffffff!important;
+}
+
+::ng-deep .p-column-filter-buttonbar .p-element.p-button-sm.p-button.p-component.ng-star-inserted {
+    background-color: #37003c!important;
+    border-color: #37003c!important;
+}
+
+::ng-deep .p-button.p-button-outlined {
+    color: #ffffff!important;
+}
+
+::ng-deep .p-column-filter-add-button {
+    color: #37003c !important;
+}
+
+::ng-deep .p-inputnumber-button.p-inputnumber-button-down {
+    background-color: #37003c!important;
+    border-color: #37003c!important;
+}
+
+::ng-deep .p-inputnumber-button.p-inputnumber-button-up {
+    background-color: #37003c!important;
+    border-color: #37003c!important;
+}
