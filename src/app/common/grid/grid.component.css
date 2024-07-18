@@ -1,3 +1,12 @@
 ::ng-deep .p-datatable-scrollable>.p-datatable-wrapper {
     min-height: 70vh; /* or your desired height */
 }
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #37003c !important;
+    background: #37003c !important;
+}
+
+::ng-deep .p-highlight {
+    color: #37003c!important;
+}

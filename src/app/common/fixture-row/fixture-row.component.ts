@@ -1,20 +1,25 @@
-import { Component, Inject, LOCALE_ID } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ITeamView } from '../../models/ITeamView';
 
 @Component({
   selector: 'app-fixture-row',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './fixture-row.component.html',
   styleUrl: './fixture-row.component.css'
 })
 export class FixtureRowComponent {
-  homeTeam: string = "Man United";
-  awayTeam: string = "Fulham";
-  fixtureDate: string | null = "";
+  @Input() id!: number;
+  @Input() homeTeam!: ITeamView;
+  @Input() awayTeam!: ITeamView;
+  @Input() fixtureDate!: Date;
+  @Input() started!: boolean;
+  @Input() finished!: boolean;
+  @Input() homeScore!: number | null;
+  @Input() awayScore!: number | null;
 
-  constructor(@Inject(LOCALE_ID) public locale: string) {
-    var datePipe = new DatePipe(locale);
-    this.fixtureDate = datePipe.transform(new Date(), 'EEEE dd MMM yyy HH:mm');
+  constructor() {
+    console.log(this.homeTeam);
   }
 }

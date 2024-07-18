@@ -5,17 +5,21 @@ import { HttpService } from '../../common/services/http.service';
 import { Routes } from '../../common/routes';
 import { IEvent } from '../../models/IEvent';
 import { FixtureRowComponent } from "../../common/fixture-row/fixture-row.component";
+import { IFixture } from '../../models/IFixture';
+import { IFixtureView } from '../../models/IFixtureView';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-fixtures',
   standalone: true,
-  imports: [DropdownModule, FormsModule, FixtureRowComponent],
+  imports: [DropdownModule, FormsModule, FixtureRowComponent, CommonModule],
   templateUrl: './fixtures.component.html',
   styleUrl: './fixtures.component.css'
 })
 export class FixturesComponent {
   events: IEvent[] = [];
-  selectedEvent: any | undefined;
+  fixtures: IFixtureView[] = [];
+  selectedEvent!: IEvent;
 
   constructor(private httpService : HttpService<any[]>) {
   }
@@ -30,6 +34,7 @@ export class FixturesComponent {
       {
         this.events = response;
         this.selectedEvent = response[0];
+        this.getFixtures(this.selectedEvent.id);
       });
   }
 
@@ -37,7 +42,7 @@ export class FixturesComponent {
     this.httpService.get(Routes.eventFixtures, {id : eventId})
       .subscribe(response => 
       {
-        console.log(response);
+        this.fixtures = response;
       });
   }
 

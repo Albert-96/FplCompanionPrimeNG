@@ -3,7 +3,7 @@
         <div class="col-3">
             <h2>Fixtures</h2>
         </div>
-        <div class="col-3 offset-6">
+        <div class="col-3 offset-6 dropdown">
             <p-dropdown
             [options]="events" 
             [(ngModel)]="selectedEvent"
@@ -13,5 +13,19 @@
             placeholder="Select matchweek" />
         </div>
     </div>
-    <app-fixture-row></app-fixture-row>
+    <div class="row">
+        <div *ngFor="let fixture of fixtures">
+            <app-fixture-row
+            [id]="fixture.id"
+            [started]="fixture.started"
+            [finished]="fixture.finished"
+            [homeScore]="fixture.team_h_score"
+            [awayScore]="fixture.team_a_score"
+            [homeTeam]="fixture.home"
+            [awayTeam]="fixture.away"
+            [fixtureDate]="fixture.kickoff_time"
+            >
+            </app-fixture-row>
+        </div>
+    </div>
 </div>

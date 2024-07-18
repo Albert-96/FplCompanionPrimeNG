@@ -8,3 +8,19 @@
     margin: 1.5rem 0px;
     color: rgb(55, 0, 60);
 }
+
+.dropdown {
+    padding-left: 100px;
+}
+
+.p-dropdown-label {
+    color: rgb(55, 0, 60)!important; 
+}
+
+.p-dropdown-items {
+    color: rgb(55, 0, 60)!important; 
+}
+
+.p-dropdown-item {
+    color: rgb(55, 0, 60)!important; 
+}

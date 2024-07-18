@@ -1,0 +1,23 @@
+.row {
+    margin-bottom: 2rem;
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
+    vertical-align: middle;
+    color: rgb(55, 0, 60);
+}
+
+.time{
+    padding-top: 1.4rem;
+    padding-left: 1.6rem;
+}
+
+.home {
+    padding-top: 1.4rem;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.away {
+    padding-top: 1.4rem;
+    font-size: 1.2rem;
+    text-align: left;
+}
