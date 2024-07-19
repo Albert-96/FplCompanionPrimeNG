@@ -1,0 +1,44 @@
+import { IElementFixtureView } from "./IElementFixtureView";
+import { IHistoryPastView } from "./IHistoryPastView";
+import { IHistoryView } from "./IHistoryView";
+import { ITeamView } from "./ITeamView";
+
+export interface IPlayerView {
+    id: number;
+    code: number | null;
+    teamDetail: ITeamView | null;
+    positionInfo: string;
+    first_name: string;
+    second_name: string;
+    current_cost: number | null;
+    form: number | null;
+    points_per_game: number | null;
+    total_points: number | null;
+    bonus: number | null;
+    bps: number | null;
+    minutes: number | null;
+    goals_scored: number | null;
+    assists: number | null;
+    clean_sheets: number | null;
+    goals_conceded: number | null;
+    own_goals: number | null;
+    penalties_saved: number | null;
+    penalties_missed: number | null;
+    yellow_cards: number | null;
+    red_cards: number | null;
+    saves: number | null;
+    value_form: number | null;
+    value_season: number | null;
+    influence_rank: number | null;
+    influence_rank_type: number | null;
+    creativity_rank: number | null;
+    creativity_rank_type: number | null;
+    threat_rank: number | null;
+    threat_rank_type: number | null;
+    ict_index_rank: number | null;
+    ict_index_rank_type: number | null;
+    selected_by_percent: string;
+    elementFixtures: IElementFixtureView[];
+    previousFixtures: IHistoryView[];
+    previousSeasons: IHistoryPastView[];
+}

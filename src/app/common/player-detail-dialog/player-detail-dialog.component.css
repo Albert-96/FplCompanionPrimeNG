@@ -1,0 +1,41 @@
+::ng-deep .p-dialog-header {
+    background-color: rgb(55, 0, 60);
+    color: #ffffff;
+}
+
+::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon {
+    color: #ffffff;
+}
+
+::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon:hover {
+    color: rgb(55, 0, 60);
+}
+
+::ng-deep .p-dialog-content {
+    padding-top: 2rem;
+}
+
+::ng-deep .p-panel-header {
+    background-color: rgb(55, 0, 60);
+    color: #ffffff;
+    padding: 1rem;
+  }
+
+.playerpic img {
+    height: 13rem;
+}
+
+.teamicon img {
+    height: 10rem;
+    padding-top: 2rem;
+}
+
+.baseinfo {
+    padding-top: 3rem;
+}
+
+.playername {
+    font-family: "PremierSans-Bold", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+}
