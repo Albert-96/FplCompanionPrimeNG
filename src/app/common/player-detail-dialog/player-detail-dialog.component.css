@@ -19,7 +19,19 @@
     background-color: rgb(55, 0, 60);
     color: #ffffff;
     padding: 1rem;
-  }
+}
+
+::ng-deep .p-divider-dashed {
+    color: rgb(55, 0, 60);
+}
+
+.PL-0 {
+    padding-left: 0rem !important;
+}
+
+.PR-0 {
+    padding-right: 0rem !important;
+}
 
 .playerpic img {
     height: 13rem;
@@ -38,4 +50,24 @@
     font-family: "PremierSans-Bold", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 400;
     font-size: 2rem;
+}
+
+.fixtureHeading {
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
+    font-size: 1.2rem;
+    color: rgb(55, 0, 60);
+}
+
+.statRowHeading p{
+    font-family: PremierSans-Regular, Arial, "Helvetica Neue", Helvetica, "sans-serif" !important;
+    font-size: 0.75rem !important;
+    height: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+.statRowInfo p{
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff !important;
+    font-size: 1.5rem !important;
+    height: 1.3rem !important;
+    margin-bottom: 2rem !important;
 }

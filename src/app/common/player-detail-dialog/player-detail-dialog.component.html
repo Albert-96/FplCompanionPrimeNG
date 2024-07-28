@@ -21,50 +21,95 @@
         </div>
     </div>
     <br/>
+    <p-panel header="Stats">
+        <div class="row">
+            <div class="col-2">
+                <div class="row statRowHeading">
+                    <p class="text-center">
+                        Price
+                    </p>
+                </div>
+                <div class="row statRowInfo">
+                    <p class="text-center">
+                        £10.5m
+                    </p>
+                </div>
+            </div>
+            <p-divider class="col-1" layout="vertical" />
+            <div class="col-1">
+                <div class="row statRowHeading">
+                    <p class="text-center">
+                        Form
+                    </p>
+                </div>
+                <div class="row statRowInfo">
+                    <p class="text-center">
+                        0.0
+                    </p>
+                </div>
+            </div>
+            <p-divider class="col-1" layout="vertical" />
+            <div class="col-2">
+                <div class="row statRowHeading">
+                    <p class="text-center">
+                        Pts / Match
+                    </p>
+                </div>
+                <div class="row statRowInfo">
+                    <p class="text-center">
+                        7.2
+                    </p>
+                </div>
+            </div>
+            <p-divider class="col-1" layout="vertical" />
+            <div class="col-1">
+                <div class="row statRowHeading">
+                    <p class="text-center">
+                        Total Pts
+                    </p>
+                </div>
+                <div class="row statRowInfo">
+                    <p class="text-center">
+                        244
+                    </p>
+                </div>
+            </div>
+            <p-divider class="col-1" layout="vertical" />
+            <div class="col-2">
+                <div class="row statRowHeading">
+                    <p class="text-center">
+                        ICT Index
+                    </p>
+                </div>
+                <div class="row statRowInfo">
+                    <p class="text-center">
+                        327.8
+                    </p>
+                </div>
+            </div>
+        </div>
+    </p-panel>
+    <p-divider align="center" type="dashed" class="fixtureHeading">
+        <b>Fixtures</b>
+    </p-divider>
     <div class="row">
-        <p-panel header="Stats">
-            <p-splitter [style]="{ height: '3rem' }">
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 1
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 2
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 3
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 4
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 5
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 6
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 7
-                    </div>
-                </ng-template>
-                <ng-template pTemplate>
-                    <div class="col flex align-items-center justify-content-center">
-                        Panel 8
-                    </div>
-                </ng-template>
-            </p-splitter>
-        </p-panel>
+        <div class="col-2">
+            <app-fixture-card></app-fixture-card>
+        </div>
+        <div class="col-2">
+            <app-fixture-card></app-fixture-card>
+        </div>
+        <div class="col-2">
+            <app-fixture-card></app-fixture-card>
+        </div>
+        <div class="col-2">
+            <app-fixture-card></app-fixture-card>
+        </div>
+        <div class="col-2">
+            <app-fixture-card></app-fixture-card>
+        </div>
+        <div class="col-2">
+            <app-fixture-card></app-fixture-card>
+        </div>
     </div>
 </div>

@@ -7,11 +7,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { SplitterModule } from 'primeng/splitter';
 import { IPlayerView } from '../../models/IPlayerDetailView';
+import { DividerModule } from 'primeng/divider';
+import { FixtureCardComponent } from "../fixture-card/fixture-card.component";
 
 @Component({
   selector: 'app-player-detail-dialog',
   standalone: true,
-  imports: [DialogModule, ButtonModule, InputTextModule, PanelModule, SplitterModule],
+  imports: [DialogModule, ButtonModule, InputTextModule, PanelModule, SplitterModule, DividerModule, FixtureCardComponent],
   providers: [DialogService],
   templateUrl: './player-detail-dialog.component.html',
   styleUrl: './player-detail-dialog.component.css'

@@ -1,0 +1,55 @@
+::ng-deep .p-panel .p-panel-content {
+    border-top: 1px solid #e5e7eb !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 0rem !important;
+    padding-top: 0.5rem !important;
+}
+
+.fixtureCardFont {
+    font-family: "PremierSans-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.align-center {
+    justify-content: center;
+}
+
+.BG-R {
+    background-color: rgb(128, 7, 45);
+    color: #ffffff;
+}
+
+.P-0 {
+    padding: 0rem !important;
+}
+
+.PT-05 {
+    padding-top: 0.5rem !important;
+}
+
+.PL-1 {
+    padding-left: 1rem !important;
+}
+
+.PL-05 {
+    padding-left: 0.5rem !important;
+}
+
+.PR-05 {
+    padding-right: 0.5rem !important;
+}
+
+.PT-1 {
+    padding-top: 1rem !important;
+}
+
+.MB-1 {
+    margin-bottom: 1rem !important;
+}
+
+.MT-1 {
+    margin-top: 1rem !important;
+}
