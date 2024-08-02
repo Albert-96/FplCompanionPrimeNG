@@ -25,12 +25,63 @@
     color: rgb(55, 0, 60);
 }
 
+::ng-deep .p-datatable .p-datatable-tbody > tr > td img{
+    height: 3rem;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+    background: rgb(55, 0, 60) !important;
+    border-color: rgb(55, 0, 60) !important;
+    color: #ffffff !important;
+}
+
+::ng-deep .p-tabview-nav {
+    color: rgb(55, 0, 60) !important;
+}
+
+::ng-deep .p-tabview-nav-link {
+    color: rgb(55, 0, 60) !important;
+}
+
 .PL-0 {
     padding-left: 0rem !important;
 }
 
 .PR-0 {
     padding-right: 0rem !important;
+}
+
+.MB-1 {
+    margin-bottom: 1rem !important;
+}
+
+.MT-1 {
+    margin-top: 1rem !important;
+}
+
+.BG-DR {
+    background-color: rgb(128, 7, 45);
+    color: white;
+}
+
+.BG-DG {
+    background-color: rgb(55, 85, 35);
+    color: white;
+}
+
+.BG-LG {
+    background-color: rgb(1, 252, 122);
+    color: black;
+}
+
+.BG-GR {
+    background-color: rgb(231, 231, 231);
+    color: black;
+}
+
+.BG-LR {
+    background-color: rgb(255, 23, 81);
+    color: white;
 }
 
 .playerpic img {
@@ -70,4 +121,12 @@
     font-size: 1.5rem !important;
     height: 1.3rem !important;
     margin-bottom: 2rem !important;
+}
+
+.fixtureCardFont {
+    font-family: "PremierSans-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 0rem !important;
 }

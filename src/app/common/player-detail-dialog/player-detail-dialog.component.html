@@ -1,21 +1,21 @@
 <div class="container">
     <div class="row">
         <div class="col-3 playerpic">
-            <img alt="Card" src="https://resources.premierleague.com/premierleague/photos/players/110x140/p244851.png" />
+            <img alt="Card" src="https://resources.premierleague.com/premierleague/photos/players/110x140/p{{playerDetail.code}}.png" />
         </div>
         <div class="col-5">
             <div class="row baseinfo">
                 <div class="col-9 playername">
-                    Cole Palmer
+                    {{playerDetail.first_name}} {{playerDetail.second_name}}
                 </div>
             </div>
             <div class="row">
                 <div class="col-3">
                     <br/>
-                    Midfielder
+                    {{playerDetail.positionInfo}}
                 </div>
                 <div class="col-6">
-                    <img alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t8.png" />
+                    <img alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t{{playerDetail.teamDetail?.code}}.png" />
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        £10.5m
+                        £{{playerDetail.current_cost}}m
                     </p>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        0.0
+                        {{playerDetail.form}}
                     </p>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        7.2
+                        {{playerDetail.points_per_game}}
                     </p>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        244
+                        {{playerDetail.total_points}}
                     </p>
                 </div>
             </div>
@@ -78,18 +78,18 @@
             <div class="col-2">
                 <div class="row statRowHeading">
                     <p class="text-center">
-                        ICT Index
+                        ICT Rank
                     </p>
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        327.8
+                        {{playerDetail.ict_index_rank_type}}
                     </p>
                 </div>
             </div>
         </div>
     </p-panel>
-    <p-divider align="center" type="dashed" class="fixtureHeading">
+    <p-divider align="center" type="solid" class="fixtureHeading">
         <b>Fixtures</b>
     </p-divider>
     <div class="row">
@@ -112,4 +112,81 @@
             <app-fixture-card></app-fixture-card>
         </div>
     </div>
+    <p-divider type="dashed" class="fixtureHeading"></p-divider>
+    <p-tabView>
+        <p-tabPanel header="Previous Seasons">
+            <p-table
+            [columns]="pastColumns"
+            [value]="pastDataSource"
+            [lazy]="true"
+            (onLazyLoad)="loadPastSeasonsData($event)"
+            [lazyLoadOnInit]="true"
+            [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header"  let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" pSortableColumn="{{col.dataField}}">
+                            <div [ngStyle]="{'width.px': col.width}">
+                                <span class="flex align-items-left">{{ col.caption }}</span>
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns">
+                            {{ rowData[col.dataField] }}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabPanel>
+        <p-tabPanel header="Fixtures">
+            <p-table
+            [columns]="fixtureColumns"
+            [value]="fixtureDataSource"
+            [lazy]="true"
+            (onLazyLoad)="loadFixtureData($event)"
+            [lazyLoadOnInit]="true"
+            [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header"  let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" pSortableColumn="{{col.dataField}}">
+                            <div [ngStyle]="{'width.px': col.width}">
+                                <span class="flex align-items-left">{{ col.caption }}</span>
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns">
+                            <div *ngIf="col.dataField === 'kickoff_time'">
+                                <time [attr.datetime] = "rowData[col.dataField]">{{rowData[col.dataField] | date: 'EEEE dd MMM yyy HH:mm a'}}</time>
+                            </div>
+                            <div *ngIf="col.dataField === 'event'">
+                                {{ rowData[col.dataField] }}
+                            </div>
+                            <div *ngIf="col.dataField === 'away' && rowData['is_home'] != true">
+                                <img alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t{{rowData['home'].code}}.png" />
+                                {{rowData['home'].short_name}}
+                                (A)
+                            </div>
+                            <div *ngIf="col.dataField === 'away' && rowData['is_home']">
+                                <img alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t{{rowData[col.dataField].code}}.png" />
+                                {{rowData[col.dataField].short_name}}
+                                (H)
+                            </div>
+                            <div *ngIf="col.dataField === 'difficulty'">
+                                <div class="fixtureCardFont">
+                                    <p
+                                    [ngClass]="{'BG-DG': rowData[col.dataField] === 1, 'BG-LG' : rowData[col.dataField] === 2, 'BG-GR' : rowData[col.dataField] === 3, 'BG-LR' : rowData[col.dataField] === 4, 'BG-DR' : rowData[col.dataField] === 5 }" 
+                                    class="MB-1 MT-1">{{ rowData[col.dataField] }}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabPanel>
+    </p-tabView>
 </div>

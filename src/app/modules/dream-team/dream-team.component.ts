@@ -6,7 +6,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { DropdownModule } from 'primeng/dropdown';
 import { HttpService } from '../../common/services/http.service';
 import { IEvent } from '../../models/IEvent';
-import { Routes } from '../../common/routes';
+import { Routes } from '../../app.constants';
 
 @Component({
   selector: 'app-dream-team',

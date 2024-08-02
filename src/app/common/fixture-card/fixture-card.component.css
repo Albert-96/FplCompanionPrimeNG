@@ -1,5 +1,8 @@
 ::ng-deep .p-panel .p-panel-content {
-    border-top: 1px solid #e5e7eb !important;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border: 1px solid rgb(128, 7, 45)  !important;
+    border-top: 1px solid rgb(128, 7, 45) !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     padding-bottom: 0rem !important;
@@ -9,8 +12,9 @@
 .fixtureCardFont {
     font-family: "PremierSans-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-align: center;
+    padding-top: 0rem !important;
 }
 
 .align-center {
@@ -48,6 +52,10 @@
 
 .MB-1 {
     margin-bottom: 1rem !important;
+}
+
+.MB-05 {
+    margin-bottom: 0.5rem !important;
 }
 
 .MT-1 {

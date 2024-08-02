@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DropdownChangeEvent, DropdownModule } from 'primeng/dropdown';
 import { HttpService } from '../../common/services/http.service';
-import { Routes } from '../../common/routes';
+import { Routes } from '../../app.constants';
 import { IEvent } from '../../models/IEvent';
 import { FixtureRowComponent } from "../../common/fixture-row/fixture-row.component";
 import { IFixture } from '../../models/IFixture';

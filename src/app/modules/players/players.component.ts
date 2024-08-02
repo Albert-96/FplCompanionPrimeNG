@@ -5,7 +5,7 @@ import { GridConstants } from '../../common/grid/grid.constants';
 import { HttpService } from '../../common/services/http.service';
 import { IPlayer } from '../../models/IPlayer';
 import { TableLazyLoadEvent } from 'primeng/table';
-import { Routes } from '../../common/routes';
+import { Routes } from '../../app.constants';
 import { GridResponse } from '../../models/IGridResponse';
 import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PlayerDetailDialogComponent } from '../../common/player-detail-dialog/player-detail-dialog.component';
