@@ -13,24 +13,26 @@ import { TableLazyLoadEvent, TableModule } from 'primeng/table';
 import { FixtureConfig, PastSeasonMidConfig } from './player-detail-dialog.config';
 import { HttpService } from '../services/http.service';
 import { Routes } from '../../app.constants';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { IHistoryPastView } from '../../models/IHistoryPastView';
 import { IElementFixtureView } from '../../models/IElementFixtureView';
+import { IFixtureCardView } from '../../models/IFixtureCardView';
 
 @Component({
   selector: 'app-player-detail-dialog',
   standalone: true,
-  imports: [DialogModule, ButtonModule, InputTextModule, PanelModule, SplitterModule, DividerModule, FixtureCardComponent, TabViewModule, TableModule, CommonModule],
+  imports: [CommonModule, NgFor, DialogModule, ButtonModule, InputTextModule, PanelModule, SplitterModule, DividerModule, FixtureCardComponent, TabViewModule, TableModule],
   providers: [DialogService],
   templateUrl: './player-detail-dialog.component.html',
   styleUrl: './player-detail-dialog.component.css'
 })
 export class PlayerDetailDialogComponent implements OnInit{
   visible: boolean = false;
-  playerDetail!: IPlayerView;
+  playerDetail!: IPlayerView | null;
   pastDataSource: IHistoryPastView[] = [];
   fixtureDataSource: IElementFixtureView[] = [];
+  fixtureCardArray: IFixtureCardView[] = [];
   pastColumns : any[];
   fixtureColumns: any[];
   loading: boolean = false;
@@ -44,6 +46,33 @@ export class PlayerDetailDialogComponent implements OnInit{
       this.loadPlayerDataPromise = this.loadPlayerData();
       this.loadPlayerDataPromise.then((response: IPlayerView) => {
         this.playerDetail = response;
+        let fixtureCards: IFixtureCardView[] = this.playerDetail.previousFixtures.slice(0,3).map(
+          item => {
+            return {
+              id: item.fixture,
+              event: null,
+              code: item.opponent_team!.code,
+              points: item.total_points,
+              difficulty: 3,
+              is_home: item.was_home
+            }
+          }
+        );
+        this.fixtureCardArray.push(...fixtureCards);
+        fixtureCards = this.playerDetail.elementFixtures.slice(0,(6 - this.fixtureCardArray.length)).map(
+          item => {
+            return {
+              id: item.id,
+              event: item.event,
+              code: item.is_home ? item.away!.code : item.home!.code,
+              points: null,
+              difficulty: item.difficulty,
+              is_home: item.is_home
+            }
+          }
+        );
+        this.fixtureCardArray.push(...fixtureCards);
+        console.log(this.fixtureCardArray);
       });
   }
 
@@ -52,7 +81,7 @@ export class PlayerDetailDialogComponent implements OnInit{
   }
 
   async loadPlayerData(): Promise<IPlayerView>  {
-    let result = await firstValueFrom(this.httpService.get(Routes.playerDetail, {id: 182}));
+    let result = await firstValueFrom(this.httpService.get(Routes.playerDetail, {id: 184}));
     return result;
   }
 

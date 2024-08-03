@@ -1,23 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="col-3 playerpic">
-            <img alt="Card" src="https://resources.premierleague.com/premierleague/photos/players/110x140/p{{playerDetail.code}}.png" />
+            <img *ngIf="playerDetail?.code" alt="Card" src="https://resources.premierleague.com/premierleague/photos/players/110x140/p{{playerDetail?.code}}.png" />
         </div>
-        <div class="col-5">
-            <div class="row baseinfo">
-                <div class="col-9 playername">
-                    {{playerDetail.first_name}} {{playerDetail.second_name}}
-                </div>
+        <div class="col-3 MT-4 playername">
+            {{playerDetail?.first_name}} {{playerDetail?.second_name}}
+        </div>
+        <div class="col-3 MT-4">
+            <div class="positionInfo">
+                {{playerDetail?.positionInfo}}
             </div>
-            <div class="row">
-                <div class="col-3">
-                    <br/>
-                    {{playerDetail.positionInfo}}
-                </div>
-                <div class="col-6">
-                    <img alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t{{playerDetail.teamDetail?.code}}.png" />
-                </div>
-            </div>
+        </div>
+        <div class="col-3 MT-3">
+            <img *ngIf="playerDetail?.teamDetail" alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t{{playerDetail?.teamDetail?.code}}.png" />
         </div>
     </div>
     <br/>
@@ -31,7 +26,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        £{{playerDetail.current_cost}}m
+                        £{{playerDetail?.current_cost}}m
                     </p>
                 </div>
             </div>
@@ -44,7 +39,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        {{playerDetail.form}}
+                        {{playerDetail?.form}}
                     </p>
                 </div>
             </div>
@@ -57,7 +52,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        {{playerDetail.points_per_game}}
+                        {{playerDetail?.points_per_game}}
                     </p>
                 </div>
             </div>
@@ -70,7 +65,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        {{playerDetail.total_points}}
+                        {{playerDetail?.total_points}}
                     </p>
                 </div>
             </div>
@@ -83,7 +78,7 @@
                 </div>
                 <div class="row statRowInfo">
                     <p class="text-center">
-                        {{playerDetail.ict_index_rank_type}}
+                        {{playerDetail?.ict_index_rank_type}}
                     </p>
                 </div>
             </div>
@@ -93,23 +88,13 @@
         <b>Fixtures</b>
     </p-divider>
     <div class="row">
-        <div class="col-2">
-            <app-fixture-card></app-fixture-card>
-        </div>
-        <div class="col-2">
-            <app-fixture-card></app-fixture-card>
-        </div>
-        <div class="col-2">
-            <app-fixture-card></app-fixture-card>
-        </div>
-        <div class="col-2">
-            <app-fixture-card></app-fixture-card>
-        </div>
-        <div class="col-2">
-            <app-fixture-card></app-fixture-card>
-        </div>
-        <div class="col-2">
-            <app-fixture-card></app-fixture-card>
+        <div class="col-2" *ngFor="let fixture of fixtureCardArray">
+            <app-fixture-card
+            [code]="fixture.code"
+            [event]="fixture.event"
+            [points]="fixture.points"
+            [difficulty]="fixture.difficulty"
+            ></app-fixture-card>
         </div>
     </div>
     <p-divider type="dashed" class="fixtureHeading"></p-divider>

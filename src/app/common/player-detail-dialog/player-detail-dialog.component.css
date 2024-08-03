@@ -59,29 +59,12 @@
     margin-top: 1rem !important;
 }
 
-.BG-DR {
-    background-color: rgb(128, 7, 45);
-    color: white;
+.MT-3 {
+    margin-top: 3.3rem !important;
 }
 
-.BG-DG {
-    background-color: rgb(55, 85, 35);
-    color: white;
-}
-
-.BG-LG {
-    background-color: rgb(1, 252, 122);
-    color: black;
-}
-
-.BG-GR {
-    background-color: rgb(231, 231, 231);
-    color: black;
-}
-
-.BG-LR {
-    background-color: rgb(255, 23, 81);
-    color: white;
+.MT-4 {
+    margin-top: 4rem !important;
 }
 
 .playerpic img {
@@ -101,6 +84,17 @@
     font-family: "PremierSans-Bold", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 400;
     font-size: 2rem;
+}
+
+.positionInfo {
+    padding: 0.4rem 1rem;
+    border-radius: 0px 0px 6px 6px;
+    background-color: rgb(55, 0, 60);
+    color: #ffffff;
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 5rem;
 }
 
 .fixtureHeading {

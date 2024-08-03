@@ -1,1 +1,27 @@
+@import "primeicons/primeicons.css";
+
 /* You can add global styles to this file, and also import other style files */
+.BG-DR {
+    background-color: rgb(128, 7, 45);
+    color: white;
+}
+
+.BG-DG {
+    background-color: rgb(55, 85, 35);
+    color: white;
+}
+
+.BG-LG {
+    background-color: rgb(1, 252, 122);
+    color: black;
+}
+
+.BG-GR {
+    background-color: rgb(231, 231, 231);
+    color: black;
+}
+
+.BG-LR {
+    background-color: rgb(255, 23, 81);
+    color: white;
+}

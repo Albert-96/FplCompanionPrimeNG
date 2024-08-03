@@ -10,6 +10,7 @@ import { GridResponse } from '../../models/IGridResponse';
 import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PlayerDetailDialogComponent } from '../../common/player-detail-dialog/player-detail-dialog.component';
 import { ButtonModule } from 'primeng/button';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-players',
@@ -25,6 +26,7 @@ export class PlayersComponent implements OnDestroy{
   loading: boolean = false;
   dataSource: IPlayer[] = [];
   totalRecords: number = 0;
+  contextMenuItems!: MenuItem[];
   selectionMode: "single" | "multiple" | null | undefined = GridConstants.singleSelection;
   ref: DynamicDialogRef | undefined;
 
@@ -36,6 +38,9 @@ export class PlayersComponent implements OnDestroy{
 
   ngOnInit() {
     this.loading = true;
+    this.contextMenuItems = [
+      { label: 'View', icon: 'pi pi-fw pi-search', command: () => console.log("View") },
+    ];
   }
 
   loadData = (event: TableLazyLoadEvent) => {
