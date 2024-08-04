@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { SplitterModule } from 'primeng/splitter';
@@ -39,7 +39,7 @@ export class PlayerDetailDialogComponent implements OnInit{
   loadPlayerDataPromise: Promise<any> = Promise.resolve();
 
   constructor (
-    public dialogService: DialogService,
+    private config: DynamicDialogConfig,
     private httpService : HttpService<IPlayerView>) {
       this.pastColumns = PastSeasonMidConfig.columns;
       this.fixtureColumns = FixtureConfig.columns;
@@ -72,7 +72,6 @@ export class PlayerDetailDialogComponent implements OnInit{
           }
         );
         this.fixtureCardArray.push(...fixtureCards);
-        console.log(this.fixtureCardArray);
       });
   }
 
@@ -81,7 +80,8 @@ export class PlayerDetailDialogComponent implements OnInit{
   }
 
   async loadPlayerData(): Promise<IPlayerView>  {
-    let result = await firstValueFrom(this.httpService.get(Routes.playerDetail, {id: 184}));
+    console.log(this.config.data);
+    let result = await firstValueFrom(this.httpService.get(Routes.playerDetail, {id: this.config.data.id}));
     return result;
   }
 
@@ -100,7 +100,6 @@ export class PlayerDetailDialogComponent implements OnInit{
   loadFixtureData = (event: TableLazyLoadEvent) => {
     this.loadPlayerDataPromise.then((response: IPlayerView) => {
       this.fixtureDataSource = response.elementFixtures;
-      console.log(this.fixtureDataSource);
     });
   }
 }

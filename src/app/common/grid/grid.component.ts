@@ -18,7 +18,7 @@ import { GridConstants } from './grid.constants'
 export class GridComponent implements OnInit {
   selected!: any[];
   selectedProduct!: any;
-  @Input() items!: MenuItem[];
+  @Input() contextMenuItems!: MenuItem[];
   @Input() selectedColumns!: any[];
   @Input() totalRecords!: number;
   @Input() loading!: boolean;
@@ -33,13 +33,17 @@ export class GridComponent implements OnInit {
   @Input() loadData: (event: TableLazyLoadEvent) => void = () => {this.loading = false};
   @Output() onRowSelectEvent = new EventEmitter<any>();
   @Output() onRowUnSelectEvent = new EventEmitter<any>();
-  @Output() onViewDetailClick = new EventEmitter<any>();
+  @Output() onContextMenuEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
-    this.items = [
-      { label: 'View', icon: 'pi pi-fw pi-search', command: () => console.log("View") },
-      { label: 'Delete', icon: 'pi pi-fw pi-times', command: () => console.log("View") }
-    ];
+    this.contextMenuItems = this.contextMenuItems.map(
+      item => {
+        return {
+          ...item,
+          command: () => { this.onContextMenuClick(item.label) }
+        }
+      }
+    );
   }
 
   onRowSelect(event: any) {
@@ -54,7 +58,7 @@ export class GridComponent implements OnInit {
     console.log(value);
   }
 
-  onContextClick() {
-    
+  onContextMenuClick(label: any) {
+    this.onContextMenuEvent.emit({label: label, id: this.selectedProduct.id});
   }
 }

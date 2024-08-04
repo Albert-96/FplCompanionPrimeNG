@@ -39,7 +39,7 @@ export class PlayersComponent implements OnDestroy{
   ngOnInit() {
     this.loading = true;
     this.contextMenuItems = [
-      { label: 'View', icon: 'pi pi-fw pi-search', command: () => console.log("View") },
+      { label: 'View', icon: 'pi pi-fw pi-search'},
     ];
   }
 
@@ -54,7 +54,13 @@ export class PlayersComponent implements OnDestroy{
       });
   }
 
-  show = () => {
+  onContextMenuClick = (event: any) => {
+    if (event.label === 'View') {
+      this.viewPlayerDetail(event.id);
+    }
+  }
+
+  viewPlayerDetail = (id: number) => {
     this.ref = this.dialogService.open(PlayerDetailDialogComponent,
       {
         header: "Player Details",
@@ -62,7 +68,7 @@ export class PlayersComponent implements OnDestroy{
         maximizable: true,
         modal:true,
         data: {
-          id: '51gF3'
+          id: id
         },
         width: '63rem',
         contentStyle: { overflow: 'auto' },
@@ -77,5 +83,5 @@ export class PlayersComponent implements OnDestroy{
     if (this.ref) {
         this.ref.close();
     }
-}
+  }
 }

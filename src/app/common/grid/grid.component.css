@@ -38,3 +38,12 @@
     background-color: #37003c!important;
     border-color: #37003c!important;
 }
+
+::ng-deep .p-contextmenu .p-contextmenu-root-list {
+    padding-left: 0rem !important;
+    text-decoration: none !important;
+}
+
+::ng-deep .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+    text-decoration: none !important;
+}

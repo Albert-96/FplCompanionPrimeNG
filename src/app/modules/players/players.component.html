@@ -1,5 +1,4 @@
 <div class="playerbody">
-    <p-button (onClick)="show()" icon="pi pi-search" label="Select a Product" />
     <app-grid
         [columns]="columns"
         [selectedColumns]="selectedColumns"
@@ -10,6 +9,8 @@
         [selectionMode]="selectionMode"
         [loading]="loading"
         [loadData]="loadData"
+        [contextMenuItems]="contextMenuItems"
+        (onContextMenuEvent)="onContextMenuClick($event)"
         scrollHeight="500px"
     ></app-grid>
 </div>
