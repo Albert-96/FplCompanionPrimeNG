@@ -47,6 +47,10 @@
     padding-left: 0rem !important;
 }
 
+.PL-1 {
+    padding-left: 1rem !important;
+}
+
 .PR-0 {
     padding-right: 0rem !important;
 }
@@ -84,6 +88,7 @@
     font-family: "PremierSans-Bold", Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 400;
     font-size: 2rem;
+    padding-left: 2rem;
 }
 
 .positionInfo {

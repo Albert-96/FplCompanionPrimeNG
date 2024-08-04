@@ -9,7 +9,7 @@ export const PlayersConfig = {
       visibleIndex: 1,
     },
     {
-      dataField: 'teamInfo.name',
+      dataField: 'teamInfo',
       caption: 'Club',
       width: 100,
       dataType: 'text',
@@ -17,7 +17,7 @@ export const PlayersConfig = {
       visibleIndex: 2,
     },
     {
-      dataField: 'positionInfo.singular_name',
+      dataField: 'elementTypeInfo',
       caption: 'Position',
       width: 130,
       dataType: 'text',

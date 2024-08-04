@@ -3,15 +3,15 @@
         <div class="col-3 playerpic">
             <img *ngIf="playerDetail?.code" alt="Card" src="https://resources.premierleague.com/premierleague/photos/players/110x140/p{{playerDetail?.code}}.png" />
         </div>
-        <div class="col-3 MT-4 playername">
+        <div class="col-5 MT-4 playername">
             {{playerDetail?.first_name}} {{playerDetail?.second_name}}
         </div>
-        <div class="col-3 MT-4">
+        <div class="col-2 MT-4">
             <div class="positionInfo">
                 {{playerDetail?.positionInfo}}
             </div>
         </div>
-        <div class="col-3 MT-3">
+        <div class="col-2 MT-3">
             <img *ngIf="playerDetail?.teamDetail" alt="Card" src="https://resources.premierleague.com/premierleague/badges/70/t{{playerDetail?.teamDetail?.code}}.png" />
         </div>
     </div>
