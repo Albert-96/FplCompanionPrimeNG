@@ -1,9 +1,37 @@
 <div class="container">
-    <div class="row">
+    <div *ngIf="mediaDevice == mediaDevices.Large" class="row">
         <div class="col-3 heading">
             <h2>Fixtures</h2>
         </div>
         <div class="col-3 offset-6 dropdown">
+            <p-dropdown
+            [options]="events" 
+            [(ngModel)]="selectedEvent"
+            optionLabel="name" 
+            [showClear]="true" 
+            (onChange)="onChange($event)"
+            placeholder="Select matchweek" />
+        </div>
+    </div>
+    <div *ngIf="mediaDevice == mediaDevices.Small" class="row MB-20">
+        <div class="col-5 PT-1 PL-5 heading">
+            <h2>Fixtures</h2>
+        </div>
+        <div class="col-4 PL-4 offset-3">
+            <p-dropdown
+            [options]="events" 
+            [(ngModel)]="selectedEvent"
+            optionLabel="name" 
+            [showClear]="true" 
+            (onChange)="onChange($event)"
+            placeholder="Select matchweek" />
+        </div>
+    </div>
+    <div *ngIf="mediaDevice == mediaDevices.XSmall" class="row MB-20">
+        <div class="col-5 PT-1 PL-5 heading">
+            <h2>Fixtures</h2>
+        </div>
+        <div class="col-7 PL-5">
             <p-dropdown
             [options]="events" 
             [(ngModel)]="selectedEvent"
