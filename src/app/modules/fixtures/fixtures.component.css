@@ -1,0 +1,33 @@
+::ng-deep .p-dropdown-item {
+    color: rgb(55, 0, 60)!important; 
+}
+
+::ng-deep .p-dropdown-label {
+    color: rgb(55, 0, 60)!important;
+}
+
+::ng-deep .p-dropdown-panel ul {
+    padding-left: 0vw !important;
+}
+
+.container {
+    padding-top: 2rem;
+}
+
+.heading {
+    font-size: 1vh;
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
+    color: rgb(55, 0, 60);
+}
+
+.dropdown {
+    padding-left: 6vw;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .dropdown {
+        padding-left: 0vw;
+    }
+}

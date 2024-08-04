@@ -1,0 +1,131 @@
+::ng-deep .p-dialog-header {
+    background-color: rgb(55, 0, 60);
+    color: #ffffff;
+}
+
+::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon {
+    color: #ffffff;
+}
+
+::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon:hover {
+    color: rgb(55, 0, 60);
+}
+
+::ng-deep .p-dialog-content {
+    padding-top: 2rem;
+}
+
+::ng-deep .p-panel-header {
+    background-color: rgb(55, 0, 60);
+    color: #ffffff;
+    padding: 1rem;
+}
+
+::ng-deep .p-divider-dashed {
+    color: rgb(55, 0, 60);
+}
+
+::ng-deep .p-datatable .p-datatable-tbody > tr > td img{
+    height: 3rem;
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link{
+    background: rgb(55, 0, 60) !important;
+    border-color: rgb(55, 0, 60) !important;
+    color: #ffffff !important;
+}
+
+::ng-deep .p-tabview-nav {
+    color: rgb(55, 0, 60) !important;
+}
+
+::ng-deep .p-tabview-nav-link {
+    color: rgb(55, 0, 60) !important;
+}
+
+.PL-0 {
+    padding-left: 0rem !important;
+}
+
+.PL-1 {
+    padding-left: 1rem !important;
+}
+
+.PR-0 {
+    padding-right: 0rem !important;
+}
+
+.MB-1 {
+    margin-bottom: 1rem !important;
+}
+
+.MT-1 {
+    margin-top: 1rem !important;
+}
+
+.MT-3 {
+    margin-top: 3.3rem !important;
+}
+
+.MT-4 {
+    margin-top: 4rem !important;
+}
+
+.playerpic img {
+    height: 13rem;
+}
+
+.teamicon img {
+    height: 10rem;
+    padding-top: 2rem;
+}
+
+.baseinfo {
+    padding-top: 3rem;
+}
+
+.playername {
+    font-family: "PremierSans-Bold", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.positionInfo {
+    padding: 0.4rem 1rem;
+    border-radius: 0px 0px 6px 6px;
+    background-color: rgb(55, 0, 60);
+    color: #ffffff;
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 5rem;
+}
+
+.fixtureHeading {
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
+    font-size: 1.2rem;
+    color: rgb(55, 0, 60);
+}
+
+.statRowHeading p{
+    font-family: PremierSans-Regular, Arial, "Helvetica Neue", Helvetica, "sans-serif" !important;
+    font-size: 0.75rem !important;
+    height: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+.statRowInfo p{
+    font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff !important;
+    font-size: 1.5rem !important;
+    height: 1.3rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.fixtureCardFont {
+    font-family: "PremierSans-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 0rem !important;
+}

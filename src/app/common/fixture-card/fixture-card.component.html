@@ -1,0 +1,29 @@
+<p-panel [showHeader]="false">
+    <div *ngIf="event !== null"  class="row PT-0">
+        <div class="fixtureCardFont">
+            <p class="MB-05">GW{{event}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <img alt="Card" src="https://resources.premierleague.com/premierleague/badges/50/t{{code}}.png" />
+        </div>
+    </div>
+    <div *ngIf="difficulty !== null" class="row">
+        <div class="col-8 offset-2 fixtureCardFont">
+            <p
+            class="MB-1 MT-1"
+            [ngClass]="{'BG-DG': difficulty === 1, 'BG-LG' : difficulty === 2, 'BG-GR' : difficulty === 3, 'BG-LR' : difficulty === 4, 'BG-DR' : difficulty === 5 }">
+                -
+            </p>
+        </div>
+    </div>
+    <div *ngIf="points !== null" class="row">
+        <div class="col-8 offset-2 fixtureCardFont">
+            <p
+            class="BG-GR MB-1 MT-1">
+                {{points}}
+            </p>
+        </div>
+    </div>
+</p-panel>

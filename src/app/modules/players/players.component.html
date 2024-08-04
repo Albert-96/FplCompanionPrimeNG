@@ -9,6 +9,8 @@
         [selectionMode]="selectionMode"
         [loading]="loading"
         [loadData]="loadData"
+        [contextMenuItems]="contextMenuItems"
+        (onContextMenuEvent)="onContextMenuClick($event)"
         scrollHeight="500px"
     ></app-grid>
 </div>

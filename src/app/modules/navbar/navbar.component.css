@@ -1,3 +1,39 @@
-.bg-fpl{
+::ng-deep .p-menubar {
     background-color: #37003c !important;
+    background: #37003c !important;
+    padding: 0rem !important;
+    border: none !important;
+}
+
+::ng-deep .p-menubar-start img{
+    height: 8vh;
+}
+
+::ng-deep .p-menuitem-link {
+    margin-top: 1vh;
+    font-family: "PremierSans-Heavy", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 3vh;
+    color: #ffff;
+    text-decoration: none;
+}
+
+::ng-deep .p-menuitem-link:hover {
+    background-color: #37003c !important;
+    background: #37003c !important;
+}
+
+::ng-deep .p-menubar-root-list {
+    background-color: #37003c !important;
+    background: #37003c !important;
+}
+
+::ng-deep .p-menubar-button {
+    margin-left: 65vw;
+    background-color: #37003c;
+    color: #ffff;
+}
+
+::ng-deep .p-menubar .p-menubar-button:focus {
+    box-shadow: 0 0 0 0.2rem #ffff !important;
 }

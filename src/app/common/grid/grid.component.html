@@ -1,3 +1,4 @@
+<p-contextMenu #cm [model]="contextMenuItems" />
 <p-table
     #dt1
     dataKey="id"
@@ -24,6 +25,8 @@
     (onRowSelect)="onRowSelect($event)"
     (onRowUnselect)="onRowUnselect($event)"
     [totalRecords]="totalRecords"
+    [(contextMenuSelection)]="selectedProduct" 
+    [contextMenu]="cm"
     [tableStyle]="{ 'min-width': '50rem'}">
     <ng-template pTemplate="caption">
         <p-multiSelect 
@@ -46,7 +49,7 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData">
+        <tr [pSelectableRow]="rowData" [pContextMenuRow]="rowData">
             <td *ngIf="isCheckbox">
                 <p-tableCheckbox [value]="rowData" [disabled]="disableCheckBox(rowData)"></p-tableCheckbox>
             </td>
@@ -54,11 +57,5 @@
                 {{ rowData[col.dataField] }}
             </td>
         </tr>
-    </ng-template>
-    <ng-template pTemplate="paginatorleft">
-        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-    </ng-template>
-    <ng-template pTemplate="paginatorright">
-        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
     </ng-template>
 </p-table>

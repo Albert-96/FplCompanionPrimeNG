@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h2>Dream Team</h2>
+        </div>
+        <div class="col-3 offset-6">
+            <p-dropdown
+            [options]="cities" 
+            [(ngModel)]="selectedCity"
+            optionLabel="name" 
+            [showClear]="true" 
+            placeholder="Select matchweek" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 offset-md-5">
+            <app-pitch-player></app-pitch-player>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 offset-md-1">
+            <app-pitch-player></app-pitch-player>
+        </div>
+        <div class="col-1 offset-1" *ngFor="let item of items">
+            <app-pitch-player></app-pitch-player>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 offset-md-1">
+            <app-pitch-player></app-pitch-player>
+        </div>
+        <div class="col-1 offset-1" *ngFor="let item of items">
+            <app-pitch-player></app-pitch-player>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 offset-md-3">
+            <app-pitch-player></app-pitch-player>
+        </div>
+        <div class="col-md-1 offset-md-1">
+            <app-pitch-player></app-pitch-player>
+        </div>
+        <div class="col-md-1 offset-md-1">
+            <app-pitch-player></app-pitch-player>
+        </div>
+    </div>
+</div>
