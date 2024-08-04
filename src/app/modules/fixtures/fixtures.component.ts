@@ -33,7 +33,7 @@ export class FixturesComponent {
       .subscribe(response => 
       {
         this.events = response;
-        this.selectedEvent = response[0];
+        this.selectedEvent = response.find(x => x.is_current || x.is_next);
         this.getFixtures(this.selectedEvent.id);
       });
   }
@@ -48,6 +48,8 @@ export class FixturesComponent {
 
   onChange = (event: DropdownChangeEvent) => {
     let value = event.value as IEvent;
-    this.getFixtures(value.id);
+    if (value) {
+      this.getFixtures(value.id);
+    }
   }
 }
