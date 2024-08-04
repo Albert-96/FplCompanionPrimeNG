@@ -77,7 +77,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
       Breakpoints.Medium,
     ]).subscribe(result => {
       if (result.matches) {
-        this.messageService.sendDeviceChange(MediaDevice.Small);
+        this.messageService.sendDeviceChange(MediaDevice.Medium);
       }
     });
     this.breakpointLargeSubscription = this.breakPointObserver.observe([
@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
       Breakpoints.XLarge
     ]).subscribe(result => {
       if (result.matches) {
-        this.messageService.sendDeviceChange(MediaDevice.Small);
+        this.messageService.sendDeviceChange(MediaDevice.Large);
       }
     });
   }

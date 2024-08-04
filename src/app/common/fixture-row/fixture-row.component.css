@@ -1,5 +1,4 @@
 .row {
-    margin-bottom: 2rem;
     font-family: PremierSans-Bold, Arial, "Helvetica Neue", Helvetica, sans-seriff;
     vertical-align: middle;
     color: rgb(55, 0, 60);
@@ -11,7 +10,7 @@
 }
 
 .home {
-    padding-top: 1.4rem;
+    padding-top: 1rem;
     font-size: 1.2rem;
     text-align: right;
 }
@@ -20,4 +19,35 @@
     padding-top: 1.4rem;
     font-size: 1.2rem;
     text-align: left;
+}
+
+.contentcenter {
+    justify-content: center;
+    text-align: center;
+}
+
+.simage img {
+    height: 11vh;
+    width: 17vw;
+}
+
+.simage {
+    font-size: 2.75vw;
+}
+
+.stime {
+    padding-top: 4vh;
+}
+
+.xstime {
+    padding-top: 2vh;
+}
+
+.xsimage {
+    font-size: 4vw;
+}
+
+.xsimage img {
+    height: 11vh;
+    width: 24vw;
 }

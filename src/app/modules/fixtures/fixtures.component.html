@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngIf="mediaDevice == mediaDevices.Large" class="row">
+    <div *ngIf="mediaDevice == mediaDevices.Large || mediaDevice == mediaDevices.Medium" class="row">
         <div class="col-3 heading">
             <h2>Fixtures</h2>
         </div>
@@ -13,7 +13,7 @@
             placeholder="Select matchweek" />
         </div>
     </div>
-    <div *ngIf="mediaDevice == mediaDevices.Small" class="row MB-20">
+    <div *ngIf="mediaDevice == mediaDevices.Small" class="row MB-5">
         <div class="col-5 PT-1 PL-5 heading">
             <h2>Fixtures</h2>
         </div>
@@ -27,7 +27,7 @@
             placeholder="Select matchweek" />
         </div>
     </div>
-    <div *ngIf="mediaDevice == mediaDevices.XSmall" class="row MB-20">
+    <div *ngIf="mediaDevice == mediaDevices.XSmall" class="row MB-5">
         <div class="col-5 PT-1 PL-5 heading">
             <h2>Fixtures</h2>
         </div>

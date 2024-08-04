@@ -35,7 +35,6 @@ export class FixturesComponent implements OnInit,OnDestroy {
     this.mediaDevice = this.messageService.getDevice();
     this.messageSubscription = this.messageService.getDeviceChange$
     .subscribe((message) => {
-      console.log(message);
       this.mediaDevice = message;
     });
   }

@@ -25,3 +25,23 @@
     background-color: rgb(255, 23, 81);
     color: white;
 }
+
+.MB-5 {
+    margin-bottom: 5vh;
+}
+
+.PT-1 {
+    padding-top: 1vh;
+}
+
+.PL-7 {
+    padding-left: 7vw;
+}
+
+.PL-4 {
+    padding-left: 4vw;
+}
+
+.PL-5 {
+    padding-left: 5vw;
+}
