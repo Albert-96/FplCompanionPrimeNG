@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-dark bg-fpl navbar-dark navbar-static-top">
+<!-- <nav class="navbar navbar-expand-md bg-dark bg-fpl navbar-dark navbar-static-top">
     <div class="navbar-logo">
         <img src="../../../assets/premierleague.png" alt="Premier League Logo" />
     </div>
@@ -18,4 +18,14 @@
             </li> 
         </ul>
     </div>
-</nav>
+</nav> -->
+<p-menubar class="bg-dark" [model]="items">
+    <ng-template pTemplate="start">
+        <img src="../../../assets/premierleague.png" alt="Premier League Logo" />
+    </ng-template>
+    <ng-template pTemplate="item" let-item let-root="root">
+        <a [routerLink]="item.route" pRipple class="flex align-items-center p-menuitem-link">
+            <span class="ml-2">{{ item.label }}</span>
+        </a>
+    </ng-template>
+</p-menubar>
