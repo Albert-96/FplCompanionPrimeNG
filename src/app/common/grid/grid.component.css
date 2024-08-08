@@ -1,53 +1,151 @@
-::ng-deep .p-datatable-scrollable>.p-datatable-wrapper {
-    min-height: 70vh; /* or your desired height */
+@media screen and (min-width: 1024px) {
+    ::ng-deep .p-datatable-scrollable>.p-datatable-wrapper {
+        min-height: 70vh; /* or your desired height */
+    }
+    
+    ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+        border-color: #37003c !important;
+        background: #37003c !important;
+    }
+    
+    ::ng-deep .p-highlight {
+        color: #37003c!important;
+    }
+    
+    :ng-deep .p-column-filter-remove-button {
+        background-color: #ffffff!important;
+        border-color: #ffffff!important;
+    }
+    
+    ::ng-deep .p-column-filter-buttonbar .p-element.p-button-sm.p-button.p-component.ng-star-inserted {
+        background-color: #37003c!important;
+        border-color: #37003c!important;
+    }
+    
+    ::ng-deep .p-button.p-button-outlined {
+        color: #ffffff!important;
+    }
+    
+    ::ng-deep .p-column-filter-add-button {
+        color: #37003c !important;
+    }
+    
+    ::ng-deep .p-inputnumber-button.p-inputnumber-button-down {
+        background-color: #37003c!important;
+        border-color: #37003c!important;
+    }
+    
+    ::ng-deep .p-inputnumber-button.p-inputnumber-button-up {
+        background-color: #37003c!important;
+        border-color: #37003c!important;
+    }
+    
+    ::ng-deep .p-contextmenu .p-contextmenu-root-list {
+        padding-left: 0rem !important;
+        text-decoration: none !important;
+    }
+    
+    ::ng-deep .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+        text-decoration: none !important;
+    }
+    
+    ::ng-deep .p-datatable .p-datatable-header {
+        padding-bottom: 0rem;
+    }
 }
 
-::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
-    border-color: #37003c !important;
-    background: #37003c !important;
+@media screen and (max-width: 400px) {
+    ::ng-deep .p-datatable-scrollable>.p-datatable-wrapper {
+        min-height: 70vh; /* or your desired height */
+    }
+    
+    ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+        border-color: #37003c !important;
+        background: #37003c !important;
+    }
+    
+    ::ng-deep .p-highlight {
+        color: #37003c!important;
+    }
+    
+    :ng-deep .p-column-filter-remove-button {
+        background-color: #ffffff!important;
+        border-color: #ffffff!important;
+    }
+    
+    ::ng-deep .p-column-filter-buttonbar .p-element.p-button-sm.p-button.p-component.ng-star-inserted {
+        background-color: #37003c!important;
+        border-color: #37003c!important;
+    }
+    
+    ::ng-deep .p-button.p-button-outlined {
+        color: #ffffff!important;
+    }
+    
+    ::ng-deep .p-column-filter-add-button {
+        color: #37003c !important;
+    }
+    
+    ::ng-deep .p-inputnumber-button.p-inputnumber-button-down {
+        background-color: #37003c!important;
+        border-color: #37003c!important;
+    }
+    
+    ::ng-deep .p-inputnumber-button.p-inputnumber-button-up {
+        background-color: #37003c!important;
+        border-color: #37003c!important;
+    }
+    
+    ::ng-deep .p-contextmenu .p-contextmenu-root-list {
+        padding-left: 0rem !important;
+        text-decoration: none !important;
+    }
+    
+    ::ng-deep .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+        text-decoration: none !important;
+    }
+    
+    ::ng-deep .p-datatable .p-datatable-header {
+        padding-top: 0.5vh;
+        padding-bottom: 0rem;
+    }
+
+    ::ng-deep .p-multiselect {
+        font-size: 2vh !important;
+    }
+
+    ::ng-deep .p-multiselect-header {
+        padding-right: 0vw !important;
+        padding-left: 2vw !important;
+    }
+
+    ::ng-deep .p-multiselect-panel {
+        max-width: 65vw;
+    }
+
+    ::ng-deep .p-multiselect-items {
+        padding-left: 0vw;
+        font-size: 2vh !important;
+    }
+
+    ::ng-deep .p-multiselect-item {
+        padding-left: 2vw !important;
+    }
+
+    ::ng-deep .p-datatable-thead {
+        font-size: 2vh !important;
+    }
+
+    ::ng-deep .p-datatable-tbody {
+        font-size: 2vh !important;
+    }
+
+    ::ng-deep .p-paginator {
+        padding-top: 0vh;
+        padding-bottom: 0vh;
+    }
 }
 
-::ng-deep .p-highlight {
-    color: #37003c!important;
-}
-
-:ng-deep .p-column-filter-remove-button {
-    background-color: #ffffff!important;
-    border-color: #ffffff!important;
-}
-
-::ng-deep .p-column-filter-buttonbar .p-element.p-button-sm.p-button.p-component.ng-star-inserted {
-    background-color: #37003c!important;
-    border-color: #37003c!important;
-}
-
-::ng-deep .p-button.p-button-outlined {
-    color: #ffffff!important;
-}
-
-::ng-deep .p-column-filter-add-button {
-    color: #37003c !important;
-}
-
-::ng-deep .p-inputnumber-button.p-inputnumber-button-down {
-    background-color: #37003c!important;
-    border-color: #37003c!important;
-}
-
-::ng-deep .p-inputnumber-button.p-inputnumber-button-up {
-    background-color: #37003c!important;
-    border-color: #37003c!important;
-}
-
-::ng-deep .p-contextmenu .p-contextmenu-root-list {
-    padding-left: 0rem !important;
-    text-decoration: none !important;
-}
-
-::ng-deep .p-contextmenu .p-menuitem > .p-menuitem-content .p-menuitem-link {
-    text-decoration: none !important;
-}
-
-::ng-deep .p-datatable .p-datatable-header {
-    padding-bottom: 0rem;
+.xsgrid {
+    font-size: 1.5vh !important;
 }

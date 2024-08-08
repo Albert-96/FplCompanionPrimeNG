@@ -1,16 +1,18 @@
-import { Component, OnDestroy } from '@angular/core';
-import { PlayersConfig } from './players.config';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { PlayersLargeConfig, PlayersXSmallConfig } from './players.config';
 import { GridComponent } from '../../common/grid/grid.component';
 import { GridConstants } from '../../common/grid/grid.constants';
 import { HttpService } from '../../common/services/http.service';
 import { IPlayer } from '../../models/IPlayer';
 import { TableLazyLoadEvent } from 'primeng/table';
-import { Routes } from '../../app.constants';
+import { MediaDevice, Routes } from '../../app.constants';
 import { GridResponse } from '../../models/IGridResponse';
 import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PlayerDetailDialogComponent } from '../../common/player-detail-dialog/player-detail-dialog.component';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
+import { Subscription } from 'rxjs';
+import { MediaMessageService } from '../../common/services/mediaMessage.service';
 
 @Component({
   selector: 'app-players',
@@ -20,20 +22,29 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './players.component.html',
   styleUrl: './players.component.css'
 })
-export class PlayersComponent implements OnDestroy{
+export class PlayersComponent implements OnInit, OnDestroy{
   columns : any[];
   selectedColumns!: any[];
   loading: boolean = false;
   dataSource: IPlayer[] = [];
   totalRecords: number = 0;
   contextMenuItems!: MenuItem[];
+  mediaDevice: MediaDevice = MediaDevice.Large;
+  mediaDevices = MediaDevice;
+  messageSubscription!: Subscription;
   selectionMode: "single" | "multiple" | null | undefined = GridConstants.singleSelection;
   ref: DynamicDialogRef | undefined;
 
-  constructor(private httpService : HttpService<GridResponse>,
-    public dialogService: DialogService) {
-    this.columns = PlayersConfig.columns;
+  constructor(
+    private httpService : HttpService<GridResponse>,
+    public dialogService: DialogService,
+    private messageService: MediaMessageService) {
+    this.columns = PlayersXSmallConfig.columns;
     this.selectedColumns = this.columns.filter(x => x.visible == true);
+    this.messageSubscription = this.messageService.getDeviceChange$
+    .subscribe((message) => {
+      this.mediaDevice = message;
+    });
   }
 
   ngOnInit() {
@@ -80,6 +91,7 @@ export class PlayersComponent implements OnDestroy{
   }
 
   ngOnDestroy() {
+    this.messageSubscription.unsubscribe();
     if (this.ref) {
         this.ref.close();
     }

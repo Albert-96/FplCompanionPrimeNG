@@ -1,61 +1,125 @@
 <p-contextMenu #cm [model]="contextMenuItems" />
-<p-table
-    #dt1
-    dataKey="id"
-    [lazy]="true"
-    (onLazyLoad)="loadData($event)"
-    [lazyLoadOnInit]="true"
-    [loading]="loading"
-    [columns]="selectedColumns"
-    [value]="dataSource"
-    [selectionMode]="selectionMode"
-    [paginator]="true"
-    [scrollable]="true"
-    scrollHeight="{{scrollHeight}}"
-    [rows]="rowCount"
-    [selectionPageOnly]="true"
-    [showCurrentPageReport]="true"
-    [selection]="selected"
-    (selectionChange)="onSelectionChange($event)"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
-    [rowsPerPageOptions]="[5, 10, 20]"
-    styleClass="p-datatable-gridlines"
-    [rowSelectable]="isRowSelectable"
-    (onRowSelect)="onRowSelect($event)"
-    (onRowUnselect)="onRowUnselect($event)"
-    [totalRecords]="totalRecords"
-    [(contextMenuSelection)]="selectedProduct" 
-    [contextMenu]="cm"
-    [tableStyle]="{ 'min-width': '50rem'}">
-    <ng-template pTemplate="caption">
-        <p-multiSelect 
-            [options]="columns" [(ngModel)]="selectedColumns" optionLabel="caption"
-            selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}" placeholder="Choose Columns">
-        </p-multiSelect>
-    </ng-template>
-    <ng-template pTemplate="header"  let-columns>
-        <tr>
-            <th *ngIf="isCheckbox" style="width: 3rem">
-                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th>
-            <th *ngFor="let col of columns" pSortableColumn="{{col.dataField}}">
-                <div [ngStyle]="{'width.px': col.width}">
-                    <span class="flex align-items-left">{{ col.caption }}</span>
-                    <p-sortIcon class="flex align-items-right" field="code"></p-sortIcon>
-                    <p-columnFilter class="flex align-items-right" type="{{col.dataType}}" field="{{col.dataField}}" display="menu" class="p-ml-auto"></p-columnFilter>
-                </div>
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData" [pContextMenuRow]="rowData">
-            <td *ngIf="isCheckbox">
-                <p-tableCheckbox [value]="rowData" [disabled]="disableCheckBox(rowData)"></p-tableCheckbox>
-            </td>
-            <td *ngFor="let col of columns">
-                {{ rowData[col.dataField] }}
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+@if (mediaDevice == mediaDevices.Large) {
+    <p-table
+        #dt1
+        dataKey="id"
+        [lazy]="true"
+        (onLazyLoad)="loadData($event)"
+        [lazyLoadOnInit]="true"
+        [loading]="loading"
+        [columns]="selectedColumns"
+        [value]="dataSource"
+        [selectionMode]="selectionMode"
+        [paginator]="true"
+        [scrollable]="true"
+        scrollHeight="{{scrollHeight}}"
+        [rows]="rowCount"
+        [selectionPageOnly]="true"
+        [showCurrentPageReport]="true"
+        [selection]="selected"
+        (selectionChange)="onSelectionChange($event)"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+        [rowsPerPageOptions]="[5, 10, 20]"
+        styleClass="p-datatable-gridlines"
+        [rowSelectable]="isRowSelectable"
+        (onRowSelect)="onRowSelect($event)"
+        (onRowUnselect)="onRowUnselect($event)"
+        [totalRecords]="totalRecords"
+        [(contextMenuSelection)]="selectedProduct" 
+        [contextMenu]="cm"
+        [tableStyle]="{ 'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            <p-multiSelect 
+                [options]="columns" [(ngModel)]="selectedColumns" optionLabel="caption"
+                selectedItemsLabel="{0} columns selected" [style]="{'min-width': '200px'}" placeholder="Choose Columns">
+            </p-multiSelect>
+        </ng-template>
+        <ng-template pTemplate="header"  let-columns>
+            <tr>
+                <th *ngIf="isCheckbox" style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th *ngFor="let col of columns" pSortableColumn="{{col.dataField}}">
+                    <div [ngStyle]="{'width.px': col.width}">
+                        <span class="flex align-items-left">{{ col.caption }}</span>
+                        <p-sortIcon class="flex align-items-right" field="code"></p-sortIcon>
+                        <p-columnFilter class="flex align-items-right" type="{{col.dataType}}" field="{{col.dataField}}" display="menu" class="p-ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" [pContextMenuRow]="rowData">
+                <td *ngIf="isCheckbox">
+                    <p-tableCheckbox [value]="rowData" [disabled]="disableCheckBox(rowData)"></p-tableCheckbox>
+                </td>
+                <td *ngFor="let col of columns">
+                    {{ rowData[col.dataField] }}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+} @else if (mediaDevice == mediaDevices.XSmall) {
+    <p-table
+        #dt1
+        dataKey="id"
+        [lazy]="true"
+        (onLazyLoad)="loadData($event)"
+        [lazyLoadOnInit]="true"
+        [loading]="loading"
+        [columns]="selectedColumns"
+        [value]="dataSource"
+        [selectionMode]="selectionMode"
+        [paginator]="true"
+        [scrollable]="true"
+        scrollHeight="{{scrollHeight}}"
+        [rows]="rowCount"
+        [selectionPageOnly]="true"
+        [showCurrentPageReport]="true"
+        [showJumpToPageDropdown]="false"
+        [showPageLinks]="false"
+        [selection]="selected"
+        (selectionChange)="onSelectionChange($event)"
+        currentPageReportTemplate="{first} - {last} of {totalRecords}"
+        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+        styleClass="p-datatable-gridlines"
+        [rowSelectable]="isRowSelectable"
+        (onRowSelect)="onRowSelect($event)"
+        (onRowUnselect)="onRowUnselect($event)"
+        [totalRecords]="totalRecords"
+        [(contextMenuSelection)]="selectedProduct" 
+        [contextMenu]="cm"
+        [tableStyle]="{ 'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            <p-multiSelect 
+                [options]="columns" [(ngModel)]="selectedColumns" optionLabel="caption"
+                selectedItemsLabel="{0} columns selected" [style]="{'min-width': '65vw'}" placeholder="Choose Columns">
+            </p-multiSelect>
+        </ng-template>
+        <ng-template pTemplate="header"  let-columns>
+            <tr>
+                <th *ngIf="isCheckbox" style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th *ngFor="let col of columns" pSortableColumn="{{col.dataField}}">
+                    <div [ngStyle]="{'width.px': col.width}">
+                        <span class="flex align-items-left">{{ col.caption }}</span>
+                        <p-sortIcon class="flex align-items-right" field="code"></p-sortIcon>
+                        <p-columnFilter class="flex align-items-right" type="{{col.dataType}}" field="{{col.dataField}}" display="menu" class="p-ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData" [pContextMenuRow]="rowData">
+                <td *ngIf="isCheckbox">
+                    <p-tableCheckbox [value]="rowData" [disabled]="disableCheckBox(rowData)"></p-tableCheckbox>
+                </td>
+                <td *ngFor="let col of columns">
+                    {{ rowData[col.dataField] }}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+}

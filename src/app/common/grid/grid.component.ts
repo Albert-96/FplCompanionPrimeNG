@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TableLazyLoadEvent, TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
@@ -7,6 +7,9 @@ import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { GridConstants } from './grid.constants'
+import { MediaDevice } from '../../app.constants';
+import { Subscription } from 'rxjs';
+import { MediaMessageService } from '../services/mediaMessage.service';
 
 @Component({
   selector: 'app-grid',
@@ -15,9 +18,12 @@ import { GridConstants } from './grid.constants'
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.css'
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements OnInit, OnDestroy {
   selected!: any[];
   selectedProduct!: any;
+  mediaDevice: MediaDevice = MediaDevice.XSmall;
+  mediaDevices = MediaDevice;
+  messageSubscription!: Subscription;
   @Input() contextMenuItems!: MenuItem[];
   @Input() selectedColumns!: any[];
   @Input() totalRecords!: number;
@@ -34,6 +40,12 @@ export class GridComponent implements OnInit {
   @Output() onRowSelectEvent = new EventEmitter<any>();
   @Output() onRowUnSelectEvent = new EventEmitter<any>();
   @Output() onContextMenuEvent = new EventEmitter<any>();
+
+  constructor(
+    private messageService: MediaMessageService
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.contextMenuItems = this.contextMenuItems.map(
@@ -60,5 +72,9 @@ export class GridComponent implements OnInit {
 
   onContextMenuClick(label: any) {
     this.onContextMenuEvent.emit({label: label, id: this.selectedProduct.id});
+  }
+
+  ngOnDestroy() {
+    this.messageSubscription.unsubscribe();
   }
 }
