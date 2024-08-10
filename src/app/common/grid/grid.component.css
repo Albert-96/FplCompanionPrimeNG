@@ -143,7 +143,48 @@
     ::ng-deep .p-paginator {
         padding-top: 0vh;
         padding-bottom: 0vh;
+        font-size: 2vh !important;
     }
+
+    ::ng-deep .p-column-filter-overlay {
+        min-width: 50vw !important;
+        max-width: 60vw !important;
+    }
+
+    ::ng-deep .p-dropdown-label {
+        font-size: 2vh !important;
+    }
+
+    ::ng-deep .p-dropdown-item {
+        font-size: 2vh !important;
+    }
+
+    ::ng-deep .p-dropdown-items {
+        padding-left: 0vw !important;
+        margin-bottom: 0vh !important;
+    }
+
+    ::ng-deep .p-column-filter-overlay-menu .p-column-filter-buttonbar {
+        padding: 2vh;
+    }
+
+    ::ng-deep .p-column-filter-overlay-menu .p-column-filter-constraint {
+        padding: 2vh;
+    }
+
+    ::ng-deep .p-inputnumber-buttons-stacked {
+        line-height: 2vh !important;
+    }
+
+    ::ng-deep .p-column-filter-add-rule {
+        padding: 0vw !important;
+    }
+
+    ::ng-deep .p-button.p-button-sm {
+        font-size: 2vh;
+        padding: 1vh;
+    }
+
 }
 
 .xsgrid {

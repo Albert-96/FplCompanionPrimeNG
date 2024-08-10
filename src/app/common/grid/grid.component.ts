@@ -31,7 +31,7 @@ export class GridComponent implements OnInit, OnDestroy {
   @Input() dataSource!: any;
   @Input() columns!: any[];
   @Input() isCheckbox: boolean = true;
-  @Input() scrollHeight: string = "200px";
+  @Input() scrollHeight: string = "70vh";
   @Input() rowCount: number = 5;
   @Input() selectionMode: "single" | "multiple" | null | undefined = GridConstants.multipleSelection;
   @Input() isRowSelectable: (row: any) => boolean = () => true;
