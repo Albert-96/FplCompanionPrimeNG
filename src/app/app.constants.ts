@@ -17,3 +17,10 @@ export enum MediaDevice {
     Medium = 3,
     Large = 4
 }
+
+export enum PhoneDevice {
+    XSmall = 1,
+    Small = 2,
+    Medium = 3,
+    Large = 4
+}

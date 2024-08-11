@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PlayersLargeConfig, PlayersXSmallConfig } from './players.config';
+import { PlayersLargeConfig, PlayersMediumPhoneConfig, PlayersSmallPhoneConfig, PlayersXSmallPhoneConfig } from './players.config';
 import { GridComponent } from '../../common/grid/grid.component';
 import { GridConstants } from '../../common/grid/grid.constants';
 import { HttpService } from '../../common/services/http.service';
 import { IPlayer } from '../../models/IPlayer';
 import { TableLazyLoadEvent } from 'primeng/table';
-import { MediaDevice, Routes } from '../../app.constants';
+import { MediaDevice, PhoneDevice, Routes } from '../../app.constants';
 import { GridResponse } from '../../models/IGridResponse';
 import { DialogService, DynamicDialogModule, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PlayerDetailDialogComponent } from '../../common/player-detail-dialog/player-detail-dialog.component';
@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { MediaMessageService } from '../../common/services/mediaMessage.service';
+import { SharedLogicService } from '../../common/services/shared-logic.service';
 
 @Component({
   selector: 'app-players',
@@ -31,20 +32,28 @@ export class PlayersComponent implements OnInit, OnDestroy{
   contextMenuItems!: MenuItem[];
   mediaDevice: MediaDevice = MediaDevice.Large;
   mediaDevices = MediaDevice;
-  messageSubscription!: Subscription;
+  phoneDevice: PhoneDevice  = PhoneDevice.Large;
+  phoneDevices = PhoneDevice;
+  mediaSubscription!: Subscription;
+  phoneSubscription!:Subscription;
   selectionMode: "single" | "multiple" | null | undefined = GridConstants.singleSelection;
   ref: DynamicDialogRef | undefined;
 
   constructor(
     private httpService : HttpService<GridResponse>,
     public dialogService: DialogService,
-    private messageService: MediaMessageService) {
-    this.columns = PlayersXSmallConfig.columns;
+    private messageService: MediaMessageService,
+    private sharedLogic: SharedLogicService) {
+    this.mediaDevice = this.messageService.getDevice();
+    this.phoneDevice = messageService.getPhone();
+    this.columns = sharedLogic.getScreenColumnConfig(
+      this.mediaDevice,
+      this.phoneDevice,
+      PlayersLargeConfig.columns,
+      PlayersMediumPhoneConfig.columns,
+      PlayersSmallPhoneConfig.columns,
+      PlayersXSmallPhoneConfig.columns);
     this.selectedColumns = this.columns.filter(x => x.visible == true);
-    this.messageSubscription = this.messageService.getDeviceChange$
-    .subscribe((message) => {
-      this.mediaDevice = message;
-    });
   }
 
   ngOnInit() {
@@ -52,6 +61,30 @@ export class PlayersComponent implements OnInit, OnDestroy{
     this.contextMenuItems = [
       { label: 'View', icon: 'pi pi-fw pi-search'},
     ];
+    this.mediaSubscription = this.messageService.getDeviceChange$
+    .subscribe((message) => {
+      this.mediaDevice = message;
+      this.columns = this.sharedLogic.getScreenColumnConfig(
+        this.mediaDevice,
+        this.phoneDevice,
+        PlayersLargeConfig.columns,
+        PlayersMediumPhoneConfig.columns,
+        PlayersSmallPhoneConfig.columns,
+        PlayersXSmallPhoneConfig.columns);
+      this.selectedColumns = this.columns.filter(x => x.visible == true);
+    });
+    this.phoneSubscription = this.messageService.getPhoneChange$
+    .subscribe((message) => {
+      this.phoneDevice = message;
+      this.columns = this.sharedLogic.getScreenColumnConfig(
+        this.mediaDevice,
+        this.phoneDevice,
+        PlayersLargeConfig.columns,
+        PlayersMediumPhoneConfig.columns,
+        PlayersSmallPhoneConfig.columns,
+        PlayersXSmallPhoneConfig.columns);
+      this.selectedColumns = this.columns.filter(x => x.visible == true);
+    });
   }
 
   loadData = (event: TableLazyLoadEvent) => {
@@ -91,7 +124,7 @@ export class PlayersComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy() {
-    this.messageSubscription.unsubscribe();
+    this.mediaSubscription.unsubscribe();
     if (this.ref) {
         this.ref.close();
     }
